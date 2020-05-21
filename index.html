@@ -172,10 +172,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-21 23:33:19 / 修改时间：23:57:23" itemprop="dateCreated datePublished" datetime="2020-05-21T23:33:19+02:00">2020-05-21</time>
+              <time title="创建时间：2020-05-21 23:33:19" itemprop="dateCreated datePublished" datetime="2020-05-21T23:33:19+02:00">2020-05-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-22 00:08:05" itemprop="dateModified" datetime="2020-05-22T00:08:05+02:00">2020-05-22</time>
+              </span>
 
           
 
@@ -188,30 +194,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>OS: Windows</p>
-<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1:"></a>Step 1:</h3><p>At first you need to install a build tool/Compilers <a href="https://sourceforge.net/projects/mingw-w64/" target="_blank" rel="noopener">MinGW</a></p>
-<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2:"></a>Step 2:</h3><p>After installation, add the <code>bin</code> path of MinGW into environment PATH, and rename <code>mingw32-make.exe</code> as <code>make.exe</code>.</p>
-<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3:"></a>Step 3:</h3><p>simple example for test Makefile</p>
-<p>creat <code>max_num.c</code>,<code>max.h</code>,<code>max.c</code>,<code>makefile</code> respectively.</p>
-<p><code>max_num.c</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &quot;max.h&quot;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;The bigger one of 3^7 and 5^6 is %d\n&quot;, max(3^7, 5^6));</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>max.h</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int max(int a, int b);</span><br></pre></td></tr></table></figure>
-
-<p><code>max.c</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;max.h&quot;</span><br><span class="line"> </span><br><span class="line">int max(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    return a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>makefile</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">max_num.exe: max_num.o max.o</span><br><span class="line">	gcc -o max_num.exe max_num.o max.o</span><br><span class="line"> </span><br><span class="line">max_num.o: max_num.c max.h</span><br><span class="line">	gcc -c max_num.c</span><br><span class="line"> </span><br><span class="line">max.o: max.c max.h</span><br><span class="line">	gcc -c max.c</span><br></pre></td></tr></table></figure>
-
-<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4:"></a>Step 4:</h3><p>Open CMD in the file path, and just run <code>make</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Desktop\Seminar_tnt\test&gt;make</span><br><span class="line">gcc -c max_num.c</span><br><span class="line">gcc -c max.c</span><br><span class="line">gcc -o max_num.exe max_num.o max.o</span><br></pre></td></tr></table></figure>
-
-<p>then you will get the target file.</p>
-<h3 id="Note-the-rule-of-Makefile"><a href="#Note-the-rule-of-Makefile" class="headerlink" title="Note: the rule of Makefile"></a>Note: the rule of Makefile</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">targets : prerequisites</span><br><span class="line">    command</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-<p>targets是文件名，以空格分开，可以使用通配符。一般来说，我们的目标基本上是一个文件，但也有可能是多个文件。<br>command是命令行, 如果其不与“target:prerequisites”在一行，那么，必须以<code>Tab键</code>开头，如果和prerequisites在一行，那么可以用分号做为分隔。<br>prerequisites也就是目标所依赖的文件（或依赖目标）。如果其中的某个文件要比目标文件要新，那么，目标就被认为是“过时的”，被认为是需要重生成的。<br>如果命令太长，你可以使用反斜框（‘\’）作为换行符。make对一行上有多少个字符没有限制。规则告诉make两件事，文件的依赖关系和如何成成目标文件。</p>
-
+          <p>Makefile is related to the compilation rules of the entire project. There are countless source files in a project. They are placed in several directories by type, function, and module. Makefile defines a series of rules to specify which files need to be compiled first, which files need to be compiled later, and which document files Need to recompile, even for more complex functional operations.<br>Because the makefile is like a shell script, which can also execute the operating system commands.</p>
+<p>The benefit of makefile is-“automatic compilation”, once written, only one make command is needed, the entire project is completely automatically compiled, which greatly improves the efficiency of software development.</p>
+<p>Make is a command tool which explains the instructions in the makefile. In general, most IDEs have this command, such as: Delphi make, Visual C ++ nmake, GNU make under Linux. Therefore, makefiles have become a compilation method in engineering.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/21/How-to-use-Makefile-in-Windows/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
