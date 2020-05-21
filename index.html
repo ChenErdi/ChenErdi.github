@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-21 21:30:40 / 修改时间：21:33:47" itemprop="dateCreated datePublished" datetime="2020-05-21T21:30:40+02:00">2020-05-21</time>
+              <time title="创建时间：2020-05-21 21:30:40 / 修改时间：21:47:17" itemprop="dateCreated datePublished" datetime="2020-05-21T21:30:40+02:00">2020-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,15 +202,14 @@
 
       
           <h1 id="What-is-Multiprocessing？"><a href="#What-is-Multiprocessing？" class="headerlink" title="What is Multiprocessing？"></a>What is Multiprocessing？</h1><p><a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank" rel="noopener">multiprocessing</a> 是一个用于产生进程的包，具有与 threading 模块相似API。<br>multiprocessing 包同时提供本地和远程并发，使用子进程代替线程，有效避免 Global Interpreter Lock 带来的影响。</p>
-<h1 id="How-to-use-it-in-Python"><a href="#How-to-use-it-in-Python" class="headerlink" title="How to use it in Python?"></a>How to use it in Python?</h1><p>multiprocessing模块提供了一个Process类来代表一个进程对象:<br>eg. 启动一个子进程并等待其结束</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line"># 子进程要执行的代码</span><br><span class="line">def run_proc(name):</span><br><span class="line">    print(&#39;Run child process %s (%s)...&#39; % (name, os.getpid()))</span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    print(&#39;Parent process %s.&#39; % os.getpid())</span><br><span class="line">    p &#x3D; Process(target&#x3D;run_proc, args&#x3D;(&#39;test&#39;,))</span><br><span class="line">    print(&#39;Child process will start.&#39;)</span><br><span class="line">    p.start()</span><br><span class="line">    p.join()</span><br><span class="line">    print(&#39;Child process end.&#39;)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Parent process 67072.</span><br><span class="line">Child process will start.</span><br><span class="line">Run child process test (59908)...</span><br><span class="line">Child process end.</span><br></pre></td></tr></table></figure>
-
-<p>创建子进程时，只需要传入一个执行函数和函数的参数，创建一个<code>Process</code>实例，用<code>start()</code>方法启动。</p>
-<p><code>join()</code>方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/21/Multiprocessing%20in%20Python/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -260,7 +259,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-21 21:31:45" itemprop="dateModified" datetime="2020-05-21T21:31:45+02:00">2020-05-21</time>
+                <time title="修改时间：2020-05-21 21:47:19" itemprop="dateModified" datetime="2020-05-21T21:47:19+02:00">2020-05-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,20 +290,14 @@
 <h4 id="2-2-一键部署"><a href="#2-2-一键部署" class="headerlink" title="2.2 一键部署"></a>2.2 一键部署</h4><p>先在 _config.yml 中修改参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: https:&#x2F;&#x2F;github.com&#x2F;ChenErdi&#x2F;ChenErdi.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 <p>再执行 hexo deploy 或者 hexo d -g</p>
-<h2 id="2-3-Quick-Start"><a href="#2-3-Quick-Start" class="headerlink" title="2.3 Quick Start"></a>2.3 Quick Start</h2><h4 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Blog"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h4 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h4 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h4 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h4 id="3-Reference"><a href="#3-Reference" class="headerlink" title="3. Reference"></a>3. Reference</h4><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a><br><a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a><br><a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
